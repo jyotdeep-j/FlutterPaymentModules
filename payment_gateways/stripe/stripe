@@ -1,0 +1,17 @@
+class Stripe{
+
+  //Call this Method in Main 
+
+  void initializeStripe(){
+    Stripe.publishableKey = Environment.stripeKey;
+    Stripe.merchantIdentifier = 'merchant.flutter.stripe.test';
+    Stripe.urlScheme = 'flutterstripe';
+  await Stripe.instance.applySettings();
+    }
+
+    // For Generating Card Token
+   void generateCardToken(){
+       Stripe.instance
+          .createToken(const CreateTokenParams.card(params: CardTokenParams()));
+    }
+}
